@@ -13,6 +13,30 @@ const config = {
   measurementId: "G-094XSEPYHC"
 };
 
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+  if (!userAuth) return;
+  // any CRUD method (get, set, update, delete) must be performed on the ref document
+  const userRef = firestore.doc(`users/${userAuth.uid}`);
+  // snapchat is an object we get from the reference object using the get() method from the document
+  const snapShot = await userRef.get();
+  // if this user does not exist in our database, create a new user in the database
+  if (!snapShot.exists) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData
+      });
+    } catch (error) {
+      console.log("Error creating user", error.message);
+    }
+  }
+  return userRef;
+};
+
 firebase.initializeApp(config);
 
 export const auth = firebase.auth();
