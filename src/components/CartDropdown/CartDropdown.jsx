@@ -1,5 +1,5 @@
 import React from "react";
-
+import { connect } from "react-redux";
 import CustomButton from "../CustomButton/CustomButton";
 
 import "../../scss/CartDropdown.scss";
