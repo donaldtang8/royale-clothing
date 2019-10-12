@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware } from "redux";
+import { persistStore } from "redux-persist";
 import { composeWithDevTools } from "redux-devtools-extension";
 import logger from "redux-logger";
 
@@ -8,10 +9,13 @@ const initialState = {};
 
 const middlewares = [logger];
 
-const store = createStore(
+export const store = createStore(
   rootReducer,
   initialState,
   composeWithDevTools(applyMiddleware(...middlewares))
 );
 
-export default store;
+// create new persisted version of store for session store and export it
+export const persistor = persistStore(store);
+
+export default { store, persistor };
