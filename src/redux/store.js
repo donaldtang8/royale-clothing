@@ -15,8 +15,8 @@ if (process.env.NODE_ENV === "development") {
 export const store = createStore(
   rootReducer,
   initialState,
-  applyMiddleware(...middlewares)
-  // composeWithDevTools(applyMiddleware(...middlewares))
+  //applyMiddleware(...middlewares)
+  composeWithDevTools(applyMiddleware(...middlewares))
 );
 
 // create new persisted version of store for session store and export it
