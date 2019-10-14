@@ -24,6 +24,17 @@ class Shop extends Component {
   componentDidMount() {
     const { updateCollections } = this.props;
     const collectionRef = firestore.collection("collections");
+
+    // const response = await fetch(
+    //   "https://firestore.googleapis.com/v1/projects/crown-db/databases/(default)/documents/collections"
+    // );
+    // console.log(await response.json());
+    // fetch(
+    //   "https://firestore.googleapis.com/v1/projects/crown-db/databases/(default)/documents/collections"
+    // );
+    // // .then(response => response.json())
+    // // .then(collections => console.log(collections));
+
     this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
       updateCollections(collectionsMap);
