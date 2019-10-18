@@ -12,7 +12,7 @@ const StripeCheckoutButton = ({ price }) => {
         amount: priceForStripe,
         token
       };
-      const res = await axios.post("payment", data);
+      await axios.post("payment", data);
       alert("Payment sucessful");
     } catch (error) {
       console.log("Payment error: ", JSON.parse(error));
