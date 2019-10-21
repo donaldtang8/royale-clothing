@@ -8,6 +8,7 @@ export const CollectionItemContainer = styled.div`
   height: 350px;
   align-items: center;
   position: relative;
+  margin: 0 5px;
 
   &:hover {
     .image {
@@ -20,7 +21,7 @@ export const CollectionItemContainer = styled.div`
     }
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 900px) {
     width: 40vw;
 
     &:hover {
@@ -42,7 +43,7 @@ export const AddButton = styled(CustomButton)`
   top: 255px;
   display: none;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 900px) {
     display: block;
     opacity: 0.9;
     min-width: unset;

@@ -1,6 +1,7 @@
 import React from "react";
-import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
+
+import { PaymentButton } from "./stripe-button.styles";
 
 const StripeCheckoutButton = ({ price }) => {
   const priceForStripe = price * 100;
@@ -21,7 +22,7 @@ const StripeCheckoutButton = ({ price }) => {
   };
 
   return (
-    <StripeCheckout
+    <PaymentButton
       label="Pay Now"
       name="CRWN Clothing Ltd."
       billingAddress

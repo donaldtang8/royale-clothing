@@ -2,20 +2,27 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     body {
-        font-family: 'Open Sans Condensed';
-        padding: 20px 40px;
+        position: relative;
+        width: 100%;
+        min-width: 30%;
 
-        @media screen and (max-width: 800px) {
-            padding: 10px;
+        @media screen and (max-width: 900px) {
         }
     }
-    
+
     a {
         text-decoration: none;
         color: black;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
     
     * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
         box-sizing: border-box;
+}
     }
 `;

@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
+import Notification from "./components/notification/notification.component";
 import Header from "./components/header/header.component";
 import Spinner from "./components/spinner/spinner.component";
 import ErrorBoundary from "./components/error-boundary/error-boundary.component";
@@ -14,6 +15,7 @@ import { GlobalStyle } from "./global.styles";
 
 const HomePage = lazy(() => import("./pages/homepage/homepage.component"));
 const ShopPage = lazy(() => import("./pages/shop/shop.component"));
+const ContactPage = lazy(() => import("./pages/contact/contact.component"));
 const SignInAndSignUpPage = lazy(() =>
   import("./pages/sign-in-and-sign-up/sign-in-and-sign-up.component")
 );
@@ -25,8 +27,9 @@ const App = ({ checkUserSession, currentUser }) => {
   }, [checkUserSession]);
 
   return (
-    <div>
+    <div className=".container">
       <GlobalStyle />
+      <Notification />
       <Header />
       <Switch>
         <ErrorBoundary>
@@ -34,6 +37,7 @@ const App = ({ checkUserSession, currentUser }) => {
             <Route exact path="/" component={HomePage} />
 
             <Route path="/shop" component={ShopPage} />
+            <Route path="/contact" component={ContactPage} />
             <Route exact path="/checkout" component={CheckoutPage} />
             <Route
               exact
