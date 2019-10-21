@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import {
   ErrorImageOverlay,
   ErrorImageContainer,
@@ -30,7 +31,7 @@ class ErrorBoundary extends Component {
       return (
         <ErrorImageOverlay>
           <ErrorImageContainer imageUrl="https://i.imgur.com/Q2BAOd2.png" />
-          <ErrorImageText>This Page is Not on the Map!</ErrorImageText>
+          <ErrorImageText>404 - Page not on the map</ErrorImageText>
         </ErrorImageOverlay>
       );
     }
